@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: spring cloud zuul gateway
+  cloud:
+    loadbalancer:
+      health-check:
+        interval: 15s
+    consul:
+      discovery:
+        tags: group=eb_lab
+
+zuul:
+  routes:
+    department:
+      path: /department/**
+      serviceId: department-service
+    employee:
+      path: /employee/**
+      serviceId: employee-service
+    organization:
+      path: /organization/**
+      serviceId: organization-service
+
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5p} %m%n"
+
+server:
+  port: 11300
