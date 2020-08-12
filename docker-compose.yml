@@ -1,0 +1,74 @@
+version: "3.2"
+services:
+  consul:
+    hostname: consul
+    image: consul
+    ports:
+      - "8500:8500"
+    networks:
+      - backend
+    expose:
+      - 8500
+  inf-zuul:
+    hostname: inf-zuul
+    build:
+      context: inf-zuul
+    ports:
+      - "11300:11300"
+    expose:
+      - 11300
+    networks:
+      - backend
+    depends_on:
+      - consul
+    links:
+      - consul:consul
+  micro-organization:
+    build:
+      context: organization-service
+    ports:
+      - "11402:11402"
+    expose:
+      - 11402
+    networks:
+      - backend
+    depends_on:
+      - consul
+    links:
+      - consul:consul
+      - inf-zuul:inf-zuul
+      - micro-employee:employee-service
+      - micro-department:department-service
+  micro-employee:
+    build:
+      context: employee-service
+    ports:
+      - "11400:11400"
+    expose:
+      - 11400
+    networks:
+      - backend
+    depends_on:
+      - consul
+    links:
+      - consul:consul
+      - inf-zuul:inf-zuul
+  micro-department:
+    build:
+      context: department-service
+    ports:
+      - "11401:11401"
+    expose:
+      - 11401
+    networks:
+      - backend
+    depends_on:
+      - consul
+    links:
+      - consul:consul
+      - inf-zuul:inf-zuul
+      - micro-employee:employee-service
+
+
+networks:
+  backend:
