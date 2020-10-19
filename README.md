@@ -44,13 +44,19 @@
 * 在项目根目录下运行`mvn package`生成jar包
 * 在根目录下运行`docker-compose up -d`
 
-### 运行
+### 运行截图
 
 运行成功后，访问http://localhost:8500
 
+![image-20200812160112465](./assets/image-20200812160112465.png)
+
 访问localhost:11300/swagger-ui.html 进行接口调试，验证服务成功运行
 
+![image-20200812160125185](./assets/image-20200812160125185.png)
+
 还可以调用FeignClient中的接口验证服务之间可以相互访问
+
+![image-20200812160029827](./assets/image-20200812160029827.png)
 
 ### 建议开发流程
 
