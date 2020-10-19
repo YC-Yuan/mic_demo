@@ -29,10 +29,15 @@
 ### 环境与框架
 
 开发工具：
+
 * IDEA
+
 开发环境：
+
 * jdk1.8
+
 部署环境：
+
 * HashiCorp Consul（[下载链接](https://www.consul.io/downloads))
 * Docker
 * Docker-compose
@@ -40,8 +45,11 @@
 ### 启动
 
 开发：
+
 * 在 IDEA 中打开项目，点击 main 函数旁边的绿色箭头启动按钮
+
 部署：
+
 * 在项目根目录下运行`mvn package`生成jar包
 * 在根目录下运行`docker-compose up -d`
 
