@@ -1,4 +1,17 @@
-<h1 align="center">EB 微服务演示</h1>
+# 微服务 Demo 教程
+
+## 主要内容
+
+- 熟悉 Git 相关操作
+- 配置微服务运行环境，运行该微服务 Demo
+- 在此基础上开发一个微服务接口
+
+## 第一步：Git
+
+拉取代码后，新建一个自己的分支，并在分支上进行后续开发，开发完毕后提交代码到自己的分支
+
+## 第二步：微服务 Demo
+
 ### 演示说明
 
 部署之前先阅读此篇[博文](https://gudaoxuri.gitbook.io/microservices-architecture/)，初步了解微服务的概念。文章不用全看完，看到“微服务的兴起”，感性的了解什么是微服务就好。通俗的讲，微服务就是分布式的功能模块。	
@@ -27,24 +40,21 @@
 * 在项目根目录下运行`mvn package`生成jar包
 * 在根目录下运行`docker-compose up -d`
 
-### 运行截图
+### 运行
 
-运行成功后，访问http://localhost:8500`
+运行成功后，访问http://localhost:8500
 
-![image-20200812160112465](F:\Laboratory\Microservices\Code\microservices_demo\assets\image-20200812160112465.png)
+访问localhost:11300/swagger-ui.html 进行接口调试，验证服务成功运行
 
-`访问localhost:11300/swagger-ui.html`进行接口调试，验证服务成功运行
-
-![image-20200812160125185](F:\Laboratory\Microservices\Code\microservices_demo\assets\image-20200812160125185.png)
-
-`还可以调用FeignClient中的接口验证服务之间可以相互访问`
-
-![image-20200812160029827](F:\Laboratory\Microservices\Code\microservices_demo\assets\image-20200812160029827.png)
+还可以调用FeignClient中的接口验证服务之间可以相互访问
 
 ### 建议开发流程
 
 * 先熟悉maven
-
 * 从spring boot入手先熟悉java web开发
-* 如果接到了任务，用微服务的思想划分功能模块
-* 后期接入网关与注册中心
+
+## 第三步：微服务接口
+
+在该 Demo 基础上：
+- 修改一个当前的接口；
+- 新增一个新的接口，该接口需调用一个外部接口，外部接口可以是机器人问答类型（如图灵机器人）等；
