@@ -8,6 +8,7 @@ public class Employee {
 	private String name;
 	private int age;
 	private String position;
+	private String question;
 
 	public Employee() {
 
@@ -75,4 +76,11 @@ public class Employee {
 				+ ", name=" + name + ", position=" + position + "]";
 	}
 
+	public String getQuestion() {
+		return question;
+	}
+
+	public void setQuestion(String question) {
+		this.question = question;
+	}
 }

@@ -7,6 +7,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.*;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 
@@ -46,6 +52,12 @@ public class EmployeeController {
     public List<Employee> findByOrganization(@PathVariable("organizationId") Long organizationId) {
         LOGGER.info("Employee find: organizationId={}", organizationId);
         return repository.findByOrganization(organizationId);
+    }
+
+    @GetMapping("/{question}")
+    public String talk(@PathVariable String question) throws IOException {
+        LOGGER.info("Employee talk: question={}",question);
+        return  repository.talk(question);
     }
 
 }
